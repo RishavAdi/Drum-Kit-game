@@ -3,7 +3,15 @@ for(var i=0;i<numberOfDrums;i++){
   document.querySelectorAll(".drum")[i].addEventListener("click",function(){
    var buttonInnerHTML=this.innerHTML;
   // this.style.color="white";
-  switch(buttonInnerHTML){
+  playDrumSound(buttonInnerHTML);
+  });
+}
+document.addEventListener("keydown",function(event){
+  var keypressed=event.key.toLowerCase();
+  playDrumSound(keypressed);
+})
+function playDrumSound(key){
+  switch(key){
     case "w":
     var crash=new Audio('sounds/crash.mp3');
     crash.play();
@@ -35,5 +43,4 @@ for(var i=0;i<numberOfDrums;i++){
     default:console.log(buttonInnerHTML);
 
   }
-});
 }
